@@ -1,0 +1,36 @@
+{%load static %}
+{% block title %}Q'LINARIOS{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Contacto</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="{% url 'editarContacto' nombres=proyectos.nombres %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtNombres" name="txtNombres" value="{{proyectos.nombres}}" class="form-control"
+                            placeholder="Nombres" maxlength="200" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtCorreo" name="txtCorreo" value="{{proyectos.correo_electronico}}" class="form-control"
+                            placeholder="Correo Electrónico" maxlength="200" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtAsunt" name="txtAsunt" value="{{proyectos.asunto}}" class="form-control"
+                            placeholder="Asunto" maxlength="200" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtMensaje" name="txtMensaje" value="{{proyectos.mensaje}}" class="form-control"
+                            placeholder="Escribe tu Mensaje" maxlength="200" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
